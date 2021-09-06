@@ -59,6 +59,8 @@ export default {
     },
     manifest: {
 
+      name: '1922 簡訊實聯制傳送小工具',
+      short_name: '1922 小工具',
       lang: 'zh-TW'
     }
   },
