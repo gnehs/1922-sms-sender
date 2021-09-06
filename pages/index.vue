@@ -3,26 +3,28 @@
   <div class="main-container">
     <qrcode-stream :track="parseCode" />
     <v-bottom-sheet hide-overlay v-model="sheet" persistent>
-      <v-card tile v-if="detectedCode">
-        <v-card-title>偵測到實聯制條碼</v-card-title>
-        <v-card-text>
-          <v-text-field v-model="detectedCode" label="編號" readonly></v-text-field>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" @click="detectedCode = null" text :href="smsLink + encodeURIComponent(`\n同行人數：2人`)">
-            2人
-          </v-btn>
-          <v-btn color="blue darken-1" @click="detectedCode = null" text :href="smsLink + encodeURIComponent(`\n同行人數：3人`)">
-            3人
-          </v-btn>
-          <v-btn color="blue darken-1" @click="detectedCode = null" outlined :href="smsLink"> 傳送 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card v-else>
-        <v-card-title>正在偵測</v-card-title>
-        <v-card-text class="text-center"> 請掃描 QR Code </v-card-text>
-      </v-card>
+      <v-dialog-bottom-transition>
+        <v-card tile v-if="detectedCode">
+          <v-card-title>偵測到實聯制條碼</v-card-title>
+          <v-card-text>
+            <v-text-field v-model="detectedCode" label="編號" readonly clearable />
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue darken-1" @click="detectedCode = null" text :href="smsLink + encodeURIComponent(`\n同行人數：2人`)">
+              2人
+            </v-btn>
+            <v-btn color="blue darken-1" @click="detectedCode = null" text :href="smsLink + encodeURIComponent(`\n同行人數：3人`)">
+              3人
+            </v-btn>
+            <v-btn color="blue darken-1" @click="detectedCode = null" outlined :href="smsLink"> 傳送 </v-btn>
+          </v-card-actions>
+        </v-card>
+        <v-card v-else>
+          <v-card-title>正在偵測</v-card-title>
+          <v-card-text class="text-center"> 請掃描 QR Code </v-card-text>
+        </v-card>
+      </v-dialog-bottom-transition>
     </v-bottom-sheet>
   </div>
 </template>
