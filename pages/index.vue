@@ -10,9 +10,13 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="sheet = false" :href="smsLink + encodeURIComponent(`\n同行人數：2人`)"> 2人 </v-btn>
-          <v-btn color="blue darken-1" text @click="sheet = false" :href="smsLink + encodeURIComponent(`\n同行人數：3人`)"> 3人 </v-btn>
-          <v-btn color="blue darken-1" outlined @click="sheet = false" :href="smsLink"> 傳送 </v-btn>
+          <v-btn color="blue darken-1" @click="detectedCode = null" text :href="smsLink + encodeURIComponent(`\n同行人數：2人`)">
+            2人
+          </v-btn>
+          <v-btn color="blue darken-1" @click="detectedCode = null" text :href="smsLink + encodeURIComponent(`\n同行人數：3人`)">
+            3人
+          </v-btn>
+          <v-btn color="blue darken-1" @click="detectedCode = null" outlined :href="smsLink"> 傳送 </v-btn>
         </v-card-actions>
       </v-card>
       <v-card v-else>
