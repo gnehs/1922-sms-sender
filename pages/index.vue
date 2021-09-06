@@ -71,7 +71,7 @@ export default {
             let smsBody = `場所代碼：${code}\n本簡訊是簡訊實聯制發送，限防疫目的使用。`
             this.smsLink = `sms:1922;?&body=${encodeURIComponent(smsBody)}`
             this.sheet = true
-            window.navigator.vibrate(10)
+            window.navigator.vibrate(100)
           }
         } catch (e) {}
       }
