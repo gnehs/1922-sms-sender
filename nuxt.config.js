@@ -54,12 +54,12 @@ export default {
     },
     meta: {
       name: '1922 小工具',
+      description: '1922 簡訊實聯制傳送小工具',
       author: 'gnehs',
       theme_color: '#000',
     },
     manifest: {
-
-      name: '1922 簡訊實聯制傳送小工具',
+      name: '1922 小工具',
       short_name: '1922 小工具',
       lang: 'zh-TW'
     }

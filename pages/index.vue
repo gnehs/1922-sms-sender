@@ -40,26 +40,9 @@ export default {
   },
   methods: {
     parseCode(detectedCodes, ctx) {
-      if (detectedCodes.length > 0) {
-        const detectedCode = detectedCodes[0]
-        //draw the bounding box
-        {
-          const [firstPoint, ...otherPoints] = detectedCode.cornerPoints
-
-          ctx.strokeStyle = 'rgba(0, 0, 0, .75)'
-          ctx.lineWidth = 4
-
-          ctx.beginPath()
-          ctx.moveTo(firstPoint.x, firstPoint.y)
-          for (const { x, y } of otherPoints) {
-            ctx.lineTo(x, y)
-          }
-          ctx.lineTo(firstPoint.x, firstPoint.y)
-          ctx.closePath()
-          ctx.stroke()
-        }
-        //show the detected code
+      for (let detectedCode of detectedCodes) {
         try {
+          //show the detected code
           let raw = detectedCode.rawValue
           let code = raw
             .replace(/[ ]+/g, '')
@@ -72,8 +55,29 @@ export default {
             this.smsLink = `sms:1922;?&body=${encodeURIComponent(smsBody)}`
             this.sheet = true
             window.navigator.vibrate(100)
+            //draw the bounding box
+            drawLine(detectedCode.cornerPoints)
+          } else {
+            drawLine(detectedCode.cornerPoints, 'rgba(255, 0, 0, .5)')
           }
-        } catch (e) {}
+        } catch (e) {
+          drawLine(detectedCode.cornerPoints, 'red')
+        }
+        function drawLine(cornerPoints, color = 'rgba(0, 0, 0, .75)') {
+          const [firstPoint, ...otherPoints] = cornerPoints
+
+          ctx.strokeStyle = color
+          ctx.lineWidth = 4
+
+          ctx.beginPath()
+          ctx.moveTo(firstPoint.x, firstPoint.y)
+          for (const { x, y } of otherPoints) {
+            ctx.lineTo(x, y)
+          }
+          ctx.lineTo(firstPoint.x, firstPoint.y)
+          ctx.closePath()
+          ctx.stroke()
+        }
       }
     }
   }
