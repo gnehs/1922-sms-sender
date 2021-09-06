@@ -1,7 +1,7 @@
  
 <template>
   <div class="main-container">
-    <qrcode-stream camera="front" :track="parseCode" />
+    <qrcode-stream :track="parseCode" />
     <v-bottom-sheet hide-overlay v-model="sheet">
       <v-card tile v-if="detectedCode">
         <v-card-title>偵測到實聯制條碼</v-card-title>
