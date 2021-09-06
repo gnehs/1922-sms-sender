@@ -11,8 +11,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - 1922-sms-sender',
-    title: '1922-sms-sender',
+    titleTemplate: '1922 簡訊實聯制傳送小工具',
+    title: '1922 簡訊實聯制傳送小工具',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
