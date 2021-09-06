@@ -4,7 +4,7 @@
     <qrcode-stream :track="parseCode" />
     <v-bottom-sheet hide-overlay v-model="sheet" persistent>
       <v-dialog-bottom-transition>
-        <v-card tile v-if="detectedCode">
+        <v-card v-if="detectedCode" class="rounded-t-xl rounded-b-0">
           <v-card-title>偵測到實聯制條碼</v-card-title>
           <v-card-text>
             <v-text-field v-model="detectedCode" label="編號" readonly clearable />
@@ -20,7 +20,7 @@
             <v-btn color="blue darken-1" @click="detectedCode = null" outlined :href="smsLink"> 傳送 </v-btn>
           </v-card-actions>
         </v-card>
-        <v-card v-else>
+        <v-card v-else class="rounded-t-xl rounded-b-0">
           <v-card-title>正在偵測</v-card-title>
           <v-card-text class="text-center"> 請掃描 QR Code </v-card-text>
         </v-card>
