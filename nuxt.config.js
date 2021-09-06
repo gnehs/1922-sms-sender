@@ -54,9 +54,13 @@ export default {
       purpose: 'maskable',
       source: '~/static/icon.png'
     },
+    meta: {
+      name: '1922 小工具',
+      author: 'gnehs',
+      theme_color: '#000',
+    },
     manifest: {
-      name: '1922 簡訊實聯制傳送小工具',
-      display: 'fullscreen',
+
       lang: 'zh-TW'
     }
   },

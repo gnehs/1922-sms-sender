@@ -69,9 +69,6 @@ export default {
           }
         } catch (e) {}
       }
-    },
-    sendSMS() {
-      this.sheet = false
     }
   }
 }
