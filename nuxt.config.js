@@ -20,7 +20,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', href: '/1922-sms-sender/icon.png' }
     ]
   },
 
@@ -50,7 +50,13 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    icon: {
+      purpose: 'maskable',
+      source: '~/static/icon.png'
+    },
     manifest: {
+      name: '1922 簡訊實聯制傳送小工具',
+      display: 'fullscreen',
       lang: 'zh-TW'
     }
   },
@@ -60,17 +66,6 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: false,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
     }
   },
 
