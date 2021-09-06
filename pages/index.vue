@@ -60,7 +60,7 @@ export default {
           .join(' ')
         this.detectedCode = code
         let smsBody = `場所代碼：2045 4813 3998 114\n本簡訊是簡訊實聯制發送，限防疫目的使用。`
-        this.smsLink = `sms:1922&body=${encodeURIComponent(smsBody)}`
+        this.smsLink = `sms:1922:${encodeURIComponent(smsBody)}`
         this.sheet = true
       }
     },
