@@ -2,7 +2,7 @@
 <template>
   <div class="main-container">
     <qrcode-stream :track="parseCode" />
-    <v-bottom-sheet hide-overlay v-model="sheet">
+    <v-bottom-sheet hide-overlay v-model="sheet" persistent>
       <v-card tile v-if="detectedCode">
         <v-card-title>偵測到實聯制條碼</v-card-title>
         <v-card-text>
@@ -60,7 +60,7 @@ export default {
           .join(' ')
         this.detectedCode = code
         let smsBody = `場所代碼：2045 4813 3998 114\n本簡訊是簡訊實聯制發送，限防疫目的使用。`
-        this.smsLink = `sms:1922:${encodeURIComponent(smsBody)}`
+        this.smsLink = `sms://1922?body=${encodeURIComponent(smsBody)}`
         this.sheet = true
         window.navigator.vibrate(10)
       }
