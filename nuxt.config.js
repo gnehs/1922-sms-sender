@@ -3,6 +3,9 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  router: {
+    base: '/1922-sms-sender/'
+  },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
