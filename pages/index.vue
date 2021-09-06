@@ -58,11 +58,13 @@ export default {
           .match(/\d{15}/)[0]
           .match(/.{1,4}/g)
           .join(' ')
-        this.detectedCode = code
-        let smsBody = `場所代碼：2045 4813 3998 114\n本簡訊是簡訊實聯制發送，限防疫目的使用。`
-        this.smsLink = `sms://1922?body=${encodeURIComponent(smsBody)}`
-        this.sheet = true
-        window.navigator.vibrate(10)
+        if (this.detectedCode != code) {
+          this.detectedCode = code
+          let smsBody = `場所代碼：2045 4813 3998 114\n本簡訊是簡訊實聯制發送，限防疫目的使用。`
+          this.smsLink = `sms:1922;?&body=${encodeURIComponent(smsBody)}`
+          this.sheet = true
+          window.navigator.vibrate(100)
+        }
       }
     },
     sendSMS() {
