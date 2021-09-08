@@ -1,3 +1,5 @@
+![](https://user-images.githubusercontent.com/16719720/132553319-5af87658-d6bb-4297-951a-7b4da02dbb0b.png)
+
 # 1922 簡訊實聯制傳送小工具
 
 ## 功能
